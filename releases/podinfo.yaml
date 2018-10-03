@@ -2,10 +2,10 @@ apiVersion: helm.integrations.flux.weave.works/v1alpha2
 kind: FluxHelmRelease
 metadata:
   name: podinfo-rc
-  namespace: stg
+  namespace: test
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.chart-image: glob:stg-*
+    flux.weave.works/tag.chart-image: glob:test-*
 spec:
   chartGitPath: podinfo
   releaseName: podinfo-rc
