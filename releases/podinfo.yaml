@@ -1,0 +1,16 @@
+apiVersion: helm.integrations.flux.weave.works/v1alpha2
+kind: FluxHelmRelease
+metadata:
+  name: podinfo-rc
+  namespace: stg
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.chart-image: glob:stg-*
+spec:
+  chartGitPath: podinfo
+  releaseName: podinfo-rc
+  values:
+    image: richardcase/podinfo:1.2.1
+    replicaCount: 2
+    service:
+      type: LoadBalancer
